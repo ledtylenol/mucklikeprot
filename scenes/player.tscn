@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://8irx3hteoscs"]
+[gd_scene load_steps=54 format=3 uid="uid://8irx3hteoscs"]
 
 [ext_resource type="Script" path="res://scripts/actors/player/player.gd" id="1_ofun5"]
 [ext_resource type="PackedScene" uid="uid://d28t0wg27a16n" path="res://scenes/footstep_manager.tscn" id="2_jfnmd"]
@@ -29,13 +29,11 @@
 [ext_resource type="Resource" uid="uid://x5212svphmcn" path="res://assets/stats/player_stats.tres" id="25_sf4nw"]
 [ext_resource type="Script" path="res://scripts/actors/player/particle_manager.gd" id="26_orxw3"]
 [ext_resource type="Texture2D" uid="uid://cf221y2im0n0w" path="res://assets/textures/crosshair/crosshair_line.png" id="28_ltgbb"]
-[ext_resource type="Script" path="res://scripts/actors/weapon.gd" id="32_056s6"]
 [ext_resource type="Script" path="res://scripts/actors/player/player_camera.gd" id="32_v2y8q"]
 [ext_resource type="Script" path="res://scripts/actors/player/interact_ray.gd" id="33_5i7nl"]
 [ext_resource type="Script" path="res://scripts/actors/health_component.gd" id="34_wnaph"]
 [ext_resource type="Script" path="res://scripts/actors/player/crosshair.gd" id="35_uddtv"]
 [ext_resource type="Script" path="res://scripts/actors/effect_handler.gd" id="36_o3yx2"]
-[ext_resource type="Script" path="res://scripts/actors/weapon_handler.gd" id="36_tyfcn"]
 [ext_resource type="Script" path="res://scripts/actors/hurtbox.gd" id="38_575n3"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dvq17"]
@@ -297,27 +295,15 @@ script = ExtResource("26_orxw3")
 script = ExtResource("36_o3yx2")
 hurtbox = NodePath("../../Hurtbox")
 parent = NodePath("../..")
-weapon_handler = NodePath("../RemoteTransform3D/WeaponHandler")
+weapon_handler = NodePath("")
 health_component = NodePath("../HealthComponent")
 
 [node name="ItemHandler" type="Node" parent="Handlers" node_paths=PackedStringArray("parent", "weapon_handler", "effect_handler")]
 script = ExtResource("18_de2ym")
 base_stats = ExtResource("25_sf4nw")
 parent = NodePath("../..")
-weapon_handler = NodePath("../RemoteTransform3D/WeaponHandler")
+weapon_handler = NodePath("")
 effect_handler = NodePath("../EffectHandler")
-
-[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Handlers"]
-remote_path = NodePath("../../CameraTraumaNode/PanNode/PlayerCamera")
-
-[node name="WeaponHandler" type="Node3D" parent="Handlers/RemoteTransform3D" node_paths=PackedStringArray("starting_weapon", "hurtbox", "target")]
-script = ExtResource("36_tyfcn")
-starting_weapon = NodePath("Weapon")
-hurtbox = NodePath("../../../Hurtbox")
-target = NodePath("../../../CameraTraumaNode/PanNode/PlayerCamera")
-
-[node name="Weapon" type="Node3D" parent="Handlers/RemoteTransform3D/WeaponHandler"]
-script = ExtResource("32_056s6")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.665)
