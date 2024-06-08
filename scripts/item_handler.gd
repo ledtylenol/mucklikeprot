@@ -5,7 +5,6 @@ class_name ItemHandler
 @onready var current_stats = base_stats.duplicate()
 @export var parent: Player
 @export var items: Array[PassiveItemBase]
-@export var weapon_handler: WeaponHandler
 @export var effect_handler: EffectHandler
 func _ready():
 	base_stats.calculate_stuff()

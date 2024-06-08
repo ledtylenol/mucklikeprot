@@ -45,7 +45,6 @@ var did_super_jump: bool = false
 var normal: Vector3 = Vector3.ZERO
 var dead: bool = false
 @export var auto_jump: bool = false
-const BOW = preload("res://scenes/weapons/bow.tscn")
 func _ready() -> void:
 	GlobalObserver.player = self
 	GlobalObserver.change_label.connect(on_label_change)

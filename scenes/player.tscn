@@ -291,18 +291,16 @@ hurtbox = NodePath("../../Hurtbox")
 [node name="ParticleManager" type="Node3D" parent="Handlers"]
 script = ExtResource("26_orxw3")
 
-[node name="EffectHandler" type="Node" parent="Handlers" node_paths=PackedStringArray("hurtbox", "parent", "weapon_handler", "health_component")]
+[node name="EffectHandler" type="Node" parent="Handlers" node_paths=PackedStringArray("hurtbox", "parent", "health_component")]
 script = ExtResource("36_o3yx2")
 hurtbox = NodePath("../../Hurtbox")
 parent = NodePath("../..")
-weapon_handler = NodePath("")
 health_component = NodePath("../HealthComponent")
 
-[node name="ItemHandler" type="Node" parent="Handlers" node_paths=PackedStringArray("parent", "weapon_handler", "effect_handler")]
+[node name="ItemHandler" type="Node" parent="Handlers" node_paths=PackedStringArray("parent", "effect_handler")]
 script = ExtResource("18_de2ym")
 base_stats = ExtResource("25_sf4nw")
 parent = NodePath("../..")
-weapon_handler = NodePath("")
 effect_handler = NodePath("../EffectHandler")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

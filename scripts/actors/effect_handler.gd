@@ -6,7 +6,6 @@ var effects: Array[EffectBase] = []
 
 @export var hurtbox: Hurtbox
 @export var parent: CharacterBody3D
-@export var weapon_handler: WeaponHandler
 @export var health_component: HealthComponent
 
 var stats: PlayerStats
