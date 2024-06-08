@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="InvItemDataConsumable" load_steps=2 format=3 uid="uid://bc44nvik3fw17"]
+
+[ext_resource type="Script" path="res://scripts/inventory/inv_item_data_consumable.gd" id="1_lrion"]
+
+[resource]
+script = ExtResource("1_lrion")
+name = "apple"
+description = "it's apple"
+stackable = true
+consumable = false
+active = false

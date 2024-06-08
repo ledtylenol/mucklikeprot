@@ -1,0 +1,73 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvnn4hd50v5qi"]
+
+[ext_resource type="Script" path="res://Button.gd" id="1_w770a"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 8
+
+[node name="Button" type="Button" parent="GridContainer"]
+layout_mode = 2
+script = ExtResource("1_w770a")
+
+[node name="Button2" type="Button" parent="GridContainer"]
+layout_mode = 2
+script = ExtResource("1_w770a")
+
+[node name="Button3" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "asd"
+script = ExtResource("1_w770a")
+
+[node name="Button4" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "sa"
+script = ExtResource("1_w770a")
+
+[node name="Button5" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "garraga"
+script = ExtResource("1_w770a")
+
+[node name="Button6" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "textus"
+script = ExtResource("1_w770a")
+
+[connection signal="button_down" from="GridContainer/Button" to="GridContainer/Button" method="_on_button_down"]
+[connection signal="button_up" from="GridContainer/Button" to="GridContainer/Button" method="_on_button_up"]
+[connection signal="mouse_entered" from="GridContainer/Button" to="GridContainer/Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/Button" to="GridContainer/Button" method="_on_mouse_exited"]
+[connection signal="button_down" from="GridContainer/Button2" to="GridContainer/Button2" method="_on_button_down"]
+[connection signal="button_up" from="GridContainer/Button2" to="GridContainer/Button2" method="_on_button_up"]
+[connection signal="mouse_entered" from="GridContainer/Button2" to="GridContainer/Button2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/Button2" to="GridContainer/Button2" method="_on_mouse_exited"]
+[connection signal="button_down" from="GridContainer/Button3" to="GridContainer/Button3" method="_on_button_down"]
+[connection signal="button_up" from="GridContainer/Button3" to="GridContainer/Button3" method="_on_button_up"]
+[connection signal="mouse_entered" from="GridContainer/Button3" to="GridContainer/Button3" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/Button3" to="GridContainer/Button3" method="_on_mouse_exited"]
+[connection signal="button_down" from="GridContainer/Button4" to="GridContainer/Button4" method="_on_button_down"]
+[connection signal="button_up" from="GridContainer/Button4" to="GridContainer/Button4" method="_on_button_up"]
+[connection signal="mouse_entered" from="GridContainer/Button4" to="GridContainer/Button4" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/Button4" to="GridContainer/Button4" method="_on_mouse_exited"]
+[connection signal="button_down" from="GridContainer/Button5" to="GridContainer/Button5" method="_on_button_down"]
+[connection signal="button_up" from="GridContainer/Button5" to="GridContainer/Button5" method="_on_button_up"]
+[connection signal="mouse_entered" from="GridContainer/Button5" to="GridContainer/Button5" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/Button5" to="GridContainer/Button5" method="_on_mouse_exited"]
+[connection signal="button_down" from="GridContainer/Button6" to="GridContainer/Button6" method="_on_button_down"]
+[connection signal="button_up" from="GridContainer/Button6" to="GridContainer/Button6" method="_on_button_up"]
+[connection signal="mouse_entered" from="GridContainer/Button6" to="GridContainer/Button6" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="GridContainer/Button6" to="GridContainer/Button6" method="_on_mouse_exited"]

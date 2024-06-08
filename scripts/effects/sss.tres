@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="JumpOnFall" load_steps=2 format=3 uid="uid://c6v8d5ap3g8rp"]
+
+[ext_resource type="Script" path="res://scripts/effects/jump_on_fall.gd" id="1_h8r3w"]
+
+[resource]
+script = ExtResource("1_h8r3w")

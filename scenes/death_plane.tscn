@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://cmg4sxshb0xxg"]
+
+[ext_resource type="Shader" uid="uid://cryg2kivme01j" path="res://assets/shaders/death_plane.tres" id="1_ergnb"]
+[ext_resource type="Script" path="res://scripts/death_plane.gd" id="1_na42s"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i727c"]
+size = Vector3(10000, 1, 10000)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l2jux"]
+render_priority = 0
+shader = ExtResource("1_ergnb")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_cmv3y"]
+material = SubResource("ShaderMaterial_l2jux")
+size = Vector2(20000, 20000)
+
+[node name="DeathPlane" type="Area3D"]
+collision_layer = 0
+collision_mask = 36
+script = ExtResource("1_na42s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_i727c")
+
+[node name="DeathPlane" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_cmv3y")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

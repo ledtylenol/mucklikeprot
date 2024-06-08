@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bi60kaoytur7t"]
+
+[ext_resource type="PackedScene" uid="uid://dbs2s6awm4lvo" path="res://assets/models/rock_model_placeholder.glb" id="1_424m4"]
+[ext_resource type="PackedScene" uid="uid://durpunrss6amb" path="res://assets/models/boulder_model_placeholder.glb" id="2_ood4k"]
+
+[node name="rock_model_placeholder" instance=ExtResource("1_424m4")]
+
+[node name="boulder_model_placeholder" parent="." index="0" instance=ExtResource("2_ood4k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.09843, 0.5, 5.32982)
+
+[node name="boulder_model_placeholder2" parent="." index="1" instance=ExtResource("2_ood4k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.84298, 0.500001, -5.60717)
+
+[node name="boulder_model_placeholder3" parent="." index="2" instance=ExtResource("2_ood4k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1648, 0.500001, -9.27316)
+
+[node name="rock_model_placeholder" parent="." index="3" instance=ExtResource("1_424m4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.98897, 0.5, -14.1884)
+
+[node name="rock_model_placeholder2" parent="." index="4" instance=ExtResource("1_424m4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.74849, 0.499999, -6.54282)

@@ -1,0 +1,11 @@
+res://default_bus_layout.tres
+res://scenes/player.tscn
+res://assets/shaders/sobel_per_object.gdshader
+res://assets/materials/DevWallTexture2.tres
+res://assets/meshes/floater_mesh.tres
+res://assets/jump_particles_variant_1.tres
+res://assets/shaders/player_hurt.gdshader
+res://assets/themes/inventory_theme.tres
+res://assets/shaders/death_plane.tres
+res://assets/shaders/ssss.gdshader
+res://scripts/player.gd

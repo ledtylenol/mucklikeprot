@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://7y1vc7x4n3yw"]
+
+[ext_resource type="Script" path="res://scripts/ui/base_textbox.gd" id="1_23oqr"]
+[ext_resource type="Script" path="res://addons/teeb.text_transitions/RichTextTransition.gd" id="1_m5no8"]
+[ext_resource type="RichTextEffect" uid="uid://byj62nu0h4gau" path="res://addons/teeb.text_transitions/resources/Bounce.tres" id="1_p1o5b"]
+[ext_resource type="AudioStream" uid="uid://chjt50hi7yxkt" path="res://assets/sound/footsteps/stone1.mp3" id="4_ug5dj"]
+[ext_resource type="AudioStream" uid="uid://duruwiw1ls1vp" path="res://assets/sound/footsteps/stone2.mp3" id="5_xn55m"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_2skhx"]
+playback_mode = 1
+random_pitch = 1.35
+streams_count = 2
+stream_0/stream = ExtResource("4_ug5dj")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("5_xn55m")
+stream_1/weight = 1.0
+
+[node name="PanelContainer" type="PanelContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+script = ExtResource("1_23oqr")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 2
+bbcode_enabled = true
+text = "[bounce]testestestestestestestestestestestestestestestestestestestestestestestestestestestestestestestestestestestestestestestestestestestestestestestestestestestestestestestestestestestestestestestestestestestestestestestestest"
+fit_content = true
+custom_effects = [ExtResource("1_p1o5b")]
+script = ExtResource("1_m5no8")
+length = 26.806
+animation_time = 2.235
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="RichTextLabel"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="RichTextLabel"]
+stream = SubResource("AudioStreamRandomizer_2skhx")
+max_polyphony = 241

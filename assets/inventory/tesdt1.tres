@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="InvSlotData" load_steps=3 format=3 uid="uid://kkiwe8dd7i3p"]
+
+[ext_resource type="Resource" uid="uid://dywinricp5re6" path="res://assets/inventory/stssd.tres" id="1_fiejs"]
+[ext_resource type="Script" path="res://scripts/inventory/inv_slot_data.gd" id="2_51ola"]
+
+[resource]
+script = ExtResource("2_51ola")
+item_data = ExtResource("1_fiejs")
+quantity = 300

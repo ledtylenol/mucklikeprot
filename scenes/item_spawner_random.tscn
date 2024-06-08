@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://bg1d06mymh2cn"]
+
+[ext_resource type="Script" path="res://scripts/effects/accelerator_effect.gd" id="1_vga5i"]
+[ext_resource type="Script" path="res://scripts/item_base.gd" id="2_axstr"]
+
+[sub_resource type="GDScript" id="GDScript_awkb2"]
+resource_name = "sdasd"
+script/source = "extends Area3D
+@export var commons: Array[PassiveItemBase]
+@export var rare: Array[PassiveItemBase]
+@export var legendary: Array[PassiveItemBase]
+@export var guaranteed_item: PassiveItemBase
+
+
+func _on_body_entered(body: Node3D) -> void:
+	if body is Player:
+		var player = body as Player
+		
+		var x = randf_range(0, 1)
+		if not guaranteed_item:
+			if x < 0.1:
+				var item = legendary.pick_random()
+				player.item_added.emit(item)
+			elif x < 0.4:
+				var item = rare.pick_random()
+				player.item_added.emit(item)
+			else:
+				var item = commons.pick_random()
+				player.item_added.emit(item)
+		else:
+				player.item_added.emit(guaranteed_item.duplicate(true))
+	set_deferred(\"monitoring\", false)
+	await get_tree().create_timer(1.0).timeout
+	set_deferred(\"monitoring\", true)
+	
+"
+
+[sub_resource type="Resource" id="Resource_j0mre"]
+script = ExtResource("1_vga5i")
+speed_mult = 5.0
+
+[sub_resource type="Resource" id="Resource_utnbw"]
+script = ExtResource("2_axstr")
+name = "nane"
+description = ""
+effect = SubResource("Resource_j0mre")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nn81j"]
+
+[node name="ItemSpawnerRandom" type="Area3D"]
+script = SubResource("GDScript_awkb2")
+guaranteed_item = SubResource("Resource_utnbw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_nn81j")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,7 @@
+[gd_resource type="RichTextEffect" script_class="BounceTransition" load_steps=2 format=3 uid="uid://byj62nu0h4gau"]
+
+[ext_resource type="Script" path="res://addons/teeb.text_transitions/transitions/Bounce.gd" id="1"]
+
+[resource]
+resource_name = "Bounce"
+script = ExtResource("1")

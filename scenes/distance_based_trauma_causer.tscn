@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bc88jcek3baw1"]
+
+[ext_resource type="Script" path="res://scripts/distance_based_trauma_causer.gd" id="1_vqf8s"]
+
+[node name="DistanceBasedTraumaCauser" type="Area3D"]
+script = ExtResource("1_vqf8s")

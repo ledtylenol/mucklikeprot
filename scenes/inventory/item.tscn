@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=3 uid="uid://b2f4bv5p8gunl"]
+
+[ext_resource type="Script" path="res://scripts/inventory/item.gd" id="1_vntcy"]
+[ext_resource type="Resource" uid="uid://b0st7tri6ad3j" path="res://scripts/inventory/test1.tres" id="2_qrp7m"]
+[ext_resource type="Script" path="res://scripts/misc/second_order_dynamics.gd" id="2_u4fal"]
+[ext_resource type="Script" path="res://scripts/inventory/inv_slot_data.gd" id="3_khh4u"]
+
+[sub_resource type="Resource" id="Resource_wteuj"]
+script = ExtResource("3_khh4u")
+quantity = 200
+stackable = true
+item_data = ExtResource("2_qrp7m")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_lhpi6"]
+radius = 0.1
+
+[sub_resource type="SphereMesh" id="SphereMesh_43y86"]
+radius = 0.05
+height = 0.1
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_cw3y0"]
+radius = 3.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_7acva"]
+radius = 0.1
+
+[node name="Item" type="CharacterBody3D"]
+collision_layer = 64
+script = ExtResource("1_vntcy")
+slot_data = SubResource("Resource_wteuj")
+
+[node name="SecondOrderDynamics" type="Node" parent="."]
+script = ExtResource("2_u4fal")
+_f = 2.0
+_z = 0.7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_lhpi6")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_43y86")
+
+[node name="DetectionArea" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionArea"]
+shape = SubResource("SphereShape3D_cw3y0")
+
+[node name="CollisionArea" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CollisionArea"]
+shape = SubResource("SphereShape3D_7acva")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.156043, 0)
+billboard = 2
+no_depth_test = true
+texture_filter = 0
+text = "text"
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]

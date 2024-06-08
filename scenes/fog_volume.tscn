@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://gv1r4ucymhwr"]
+
+[ext_resource type="Shader" path="res://assets/shaders/funny_fog.gdshader" id="1_i42h8"]
+[ext_resource type="Script" path="res://scripts/fog/fog_volume.gd" id="2_0d7da"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_byh8h"]
+shader = ExtResource("1_i42h8")
+shader_parameter/density = 1.0
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/emission = Color(0, 0, 0, 1)
+shader_parameter/height_falloff = 7.305
+shader_parameter/edge_fade = 6.98
+shader_parameter/period = 23.1
+shader_parameter/time = 0.0
+
+[node name="FogVolume" type="FogVolume"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 39.975, 0)
+size = Vector3(50, 50, 50)
+shape = 0
+material = SubResource("ShaderMaterial_byh8h")
+script = ExtResource("2_0d7da")
+duration = 3.0

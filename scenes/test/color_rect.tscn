@@ -1,0 +1,62 @@
+[gd_scene load_steps=11 format=3 uid="uid://c6cx565gy7heo"]
+
+[ext_resource type="Shader" uid="uid://njojdi0qk0aq" path="res://assets/shaders/funny_bg.tres" id="1_nrive"]
+
+[sub_resource type="Gradient" id="Gradient_4nfi8"]
+offsets = PackedFloat32Array(0.00597015, 1)
+colors = PackedColorArray(0.353968, 0.663216, 0.545619, 1, 0.220777, 0.410086, 0.349065, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_cmlxa"]
+frequency = 0.0108
+fractal_type = 2
+cellular_distance_function = 2
+cellular_jitter = 6.475
+cellular_return_type = 4
+domain_warp_enabled = true
+domain_warp_type = 1
+domain_warp_amplitude = 32.465
+domain_warp_frequency = 0.8
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_4edsy"]
+seamless = true
+color_ramp = SubResource("Gradient_4nfi8")
+noise = SubResource("FastNoiseLite_cmlxa")
+
+[sub_resource type="Gradient" id="Gradient_q8gdr"]
+offsets = PackedFloat32Array(0, 0.208955, 0.370149, 0.528358, 0.674627, 0.808955, 0.997015)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_7mrnq"]
+frequency = 0.0003
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_n63s5"]
+seamless = true
+seamless_blend_skirt = 0.367
+color_ramp = SubResource("Gradient_q8gdr")
+noise = SubResource("FastNoiseLite_7mrnq")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ssvue"]
+shader = ExtResource("1_nrive")
+shader_parameter/time_scale = 0.001
+shader_parameter/spiral_factor = 1.0
+shader_parameter/Texture2DParameter2 = SubResource("NoiseTexture2D_n63s5")
+shader_parameter/Texture2DParameter = SubResource("NoiseTexture2D_4edsy")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_73fk4"]
+frequency = 0.1107
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jyqjo"]
+noise = SubResource("FastNoiseLite_73fk4")
+
+[node name="ColorRect" type="TextureRect"]
+material = SubResource("ShaderMaterial_ssvue")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -131.0
+offset_top = -19.0
+offset_right = 35.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("NoiseTexture2D_jyqjo")

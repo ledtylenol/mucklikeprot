@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://belwn4q8wypmy"]
+
+[sub_resource type="GDScript" id="GDScript_icy14"]
+resource_name = "BulletTestSpawner"
+script/source = "extends Node3D
+var d = 0.0
+const BULLET_TEST = preload(\"res://scenes/bullet_test.tscn\")
+func _process(delta: float) -> void:
+	d += delta
+	if d > 1:
+		d = 0
+		var test = BULLET_TEST.instantiate()
+		add_child(test)
+"
+
+[node name="Node3D" type="Node3D"]
+script = SubResource("GDScript_icy14")

@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="InventoryData" load_steps=8 format=3 uid="uid://cq06lvm51e4fc"]
+
+[ext_resource type="Script" path="res://scripts/inventory/inv_inventory_data.gd" id="1_kh51g"]
+[ext_resource type="SphereMesh" uid="uid://jhtf5vgxgbvh" path="res://assets/meshes/floater_mesh.tres" id="2_jcuww"]
+[ext_resource type="Script" path="res://scripts/inventory/inv_item_data.gd" id="2_p6qik"]
+[ext_resource type="Script" path="res://scripts/inventory/inv_slot_data.gd" id="3_5lgyy"]
+[ext_resource type="Texture2D" uid="uid://cfc6m1sd4nd67" path="res://icon.svg" id="3_a02do"]
+
+[sub_resource type="Resource" id="Resource_1u23y"]
+script = ExtResource("2_p6qik")
+max_stack_limit = 9999
+category = ""
+texture = ExtResource("3_a02do")
+name = "dog"
+mesh = ExtResource("2_jcuww")
+description = ""
+
+[sub_resource type="Resource" id="Resource_atpow"]
+script = ExtResource("3_5lgyy")
+quantity = 100
+stackable = true
+item_data = SubResource("Resource_1u23y")
+
+[resource]
+script = ExtResource("1_kh51g")
+slot_datas = Array[ExtResource("3_5lgyy")]([SubResource("Resource_atpow"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
+slot_count = 200

@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://e7fx5nqxwvil"]
+
+[sub_resource type="GDScript" id="GDScript_anhyg"]
+script/source = "extends Marker3D
+@export var target: Node3D
+const FLOATER = preload(\"res://scenes/floater.tscn\")
+func _ready() -> void:
+	await get_tree().create_timer(10).timeout
+	for i in range(100):
+		var rand_vec = Vector3(randf_range(-10, 10),randf_range(-1, 1),randf_range(-10, 10))
+		var new_floater = FLOATER.instantiate()
+		get_parent().add_child(new_floater)
+		new_floater.global_position = global_position + rand_vec
+		new_floater.target = target
+"
+
+[node name="Spawner" type="Marker3D" node_paths=PackedStringArray("target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.96728, 4.9015, -0.877947)
+script = SubResource("GDScript_anhyg")
+target = NodePath("")

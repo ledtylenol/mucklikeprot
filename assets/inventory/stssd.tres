@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://dywinricp5re6"]
+
+[ext_resource type="Script" path="res://scripts/inventory/inv_item_data.gd" id="1_ff6jo"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bsag2"]
+load_path = "res://.godot/imported/DevTexture2.png-dd79c91f09c831f6869641892e62d5de.ctex"
+
+[resource]
+script = ExtResource("1_ff6jo")
+max_stack_limit = 9999
+category = ""
+texture = SubResource("CompressedTexture2D_bsag2")
+name = "test"
+description = ""

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://putdiv6pdlhl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vdjpx"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_bnk8l"]
+material = SubResource("StandardMaterial3D_vdjpx")
+
+[node name="testpoint" type="MeshInstance3D"]
+mesh = SubResource("BoxMesh_bnk8l")

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="PlayerStats" load_steps=2 format=3 uid="uid://x5212svphmcn"]
+
+[ext_resource type="Script" path="res://scripts/actors/player_stats.gd" id="1_pn5uo"]
+
+[resource]
+script = ExtResource("1_pn5uo")
+ground_acceleration = 5.0
+jump_count = 3
+minimum_jump_duration = 0.05
+coyote_time = 0.1
+speed = 6.0
+speed_mul = 1.0
+jump_height = 2.1
+jump_peak_time = 0.42
+jump_descend_time = 0.4

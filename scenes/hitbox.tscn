@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://og21iuvywsbw"]
+
+[ext_resource type="Script" path="res://scripts/actors/hitbox.gd" id="1_6be27"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_djhmc"]
+radius = 0.083
+
+[node name="Hitbox" type="Area3D"]
+collision_layer = 65536
+collision_mask = 0
+script = ExtResource("1_6be27")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_djhmc")

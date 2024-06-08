@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://d77cc64ltp8d"]
+
+[ext_resource type="Shader" path="res://assets/shaders/sobel_per_object.gdshader" id="1_s7kyi"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_s7kyi")
+shader_parameter/scale = 1.0
+shader_parameter/outline_threshold = 0.9
+shader_parameter/outline_color = Color(0, 0, 0, 1)

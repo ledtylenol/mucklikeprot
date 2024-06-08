@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://ch1ry7d5sbck2"]
+
+[ext_resource type="Script" path="res://scripts/dead_scene.gd" id="1_5dxb7"]
+
+[node name="DeadScene" type="CanvasLayer"]
+script = ExtResource("1_5dxb7")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.336458
+anchor_top = 0.433333
+anchor_right = 0.666667
+anchor_bottom = 0.566667
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 105
+bbcode_enabled = true
+text = "[center][wave]try again?"
+fit_content = true
+metadata/_edit_use_anchors_ = true

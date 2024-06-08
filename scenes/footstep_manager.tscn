@@ -1,0 +1,25 @@
+[gd_scene load_steps=7 format=3 uid="uid://d28t0wg27a16n"]
+
+[ext_resource type="AudioStream" uid="uid://cx2gmao2ldru7" path="res://assets/sound/footsteps/dirt1.mp3" id="1_hnif6"]
+[ext_resource type="AudioStream" uid="uid://bi1l8aax0a2pv" path="res://assets/sound/footsteps/dirt2.mp3" id="2_i51kk"]
+[ext_resource type="AudioStream" uid="uid://drg3m0dn28l1" path="res://assets/sound/footsteps/dirt3.mp3" id="3_6omkp"]
+[ext_resource type="AudioStream" uid="uid://b761qj1o5b312" path="res://assets/sound/footsteps/dirt4.mp3" id="4_fxxgl"]
+[ext_resource type="Script" path="res://scripts/actors/player/footstep_handler.gd" id="5_ujw8h"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_1eem8"]
+random_volume_offset_db = 2.73
+streams_count = 4
+stream_0/stream = ExtResource("1_hnif6")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("2_i51kk")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("3_6omkp")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("4_fxxgl")
+stream_3/weight = 1.0
+
+[node name="FootstepManager" type="AudioStreamPlayer"]
+stream = SubResource("AudioStreamRandomizer_1eem8")
+volume_db = -5.742
+max_polyphony = 51
+script = ExtResource("5_ujw8h")

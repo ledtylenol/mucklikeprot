@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://bl0hpedcv7eou"]
+
+[ext_resource type="Script" path="res://scripts/misc/second_order_dynamics.gd" id="1_k4mnt"]
+
+[sub_resource type="GDScript" id="GDScript_gwvee"]
+script/source = "extends CharacterBody3D
+@onready var second_order_dynamics: SecondOrderDynamics = $SecondOrderDynamics
+@export var target: Node3D
+
+func _ready():
+	second_order_dynamics.init(target.rotation)
+
+func _process(delta: float) -> void:
+	#position = second_order_dynamics.update_pos(position, target.position, delta)
+	rotation = second_order_dynamics.update(rotation, target.rotation, delta)[0]
+	#rotation.x = second_order_dynamics.update_rot1(rotation.x, target.rotation.x, delta)
+	#rotation.y = second_order_dynamics.update_rot2(rotation.y, target.rotation.y, delta)
+	#rotation.z = second_order_dynamics.update_rot3(rotation.z, target.rotation.z, delta)
+"
+
+[sub_resource type="BoxMesh" id="BoxMesh_lic14"]
+
+[node name="SecondOrderDynamicsTest" type="CharacterBody3D"]
+script = SubResource("GDScript_gwvee")
+
+[node name="SecondOrderDynamics" type="Node" parent="."]
+script = ExtResource("1_k4mnt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_lic14")

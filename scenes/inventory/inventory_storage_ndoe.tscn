@@ -1,0 +1,215 @@
+[gd_scene load_steps=13 format=3 uid="uid://dptducnorxyf4"]
+
+[ext_resource type="Theme" uid="uid://ca1mxpfijoc82" path="res://assets/themes/inventory_theme.tres" id="1_u7cpj"]
+[ext_resource type="Script" path="res://scripts/inventory/inventory.gd" id="2_86f1b"]
+[ext_resource type="Resource" uid="uid://cq06lvm51e4fc" path="res://scripts/inventory/sdds.tres" id="3_8oi6n"]
+[ext_resource type="Script" path="res://scripts/misc/second_order_dynamics.gd" id="4_7yy2h"]
+[ext_resource type="Script" path="res://scripts/inventory/hotbar.gd" id="5_u2u6f"]
+[ext_resource type="Resource" uid="uid://dwa48ydjo3s7g" path="res://assets/inventory/hotbar.tres" id="6_djqsp"]
+[ext_resource type="Script" path="res://scripts/inventory/external_inventory.gd" id="7_cgudm"]
+[ext_resource type="Script" path="res://scripts/inventory/inv_inventory_data.gd" id="8_sqhsm"]
+[ext_resource type="PackedScene" uid="uid://ou38rmu0i5gp" path="res://scenes/inventory/slot.tscn" id="9_5x1td"]
+[ext_resource type="Script" path="res://scripts/actors/player/hand.gd" id="10_su6re"]
+[ext_resource type="ArrayMesh" uid="uid://dqrn3je8s5c0g" path="res://assets/meshes/chest.tres" id="11_h0ba3"]
+
+[sub_resource type="Resource" id="Resource_itdkt"]
+script = ExtResource("8_sqhsm")
+slot_datas = Array[Resource("res://scripts/inventory/inv_slot_data.gd")]([])
+slot_count = 0
+
+[node name="InventoryStorageNdoe" type="Node3D"]
+
+[node name="Inventory" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme = ExtResource("1_u7cpj")
+script = ExtResource("2_86f1b")
+initial_inventory = ExtResource("3_8oi6n")
+primary_inventory = true
+
+[node name="InventoryInterface" type="Control" parent="Inventory"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Inventory/InventoryInterface"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.436
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = -86.88
+offset_bottom = -83.9999
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Inventory/InventoryInterface/PanelContainer"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="GridContainer" type="GridContainer" parent="Inventory/InventoryInterface/PanelContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 4
+
+[node name="Button" type="Button" parent="Inventory/InventoryInterface"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.979688
+anchor_top = 0.221296
+anchor_right = 1.0
+anchor_bottom = 0.25
+grow_horizontal = 0
+grow_vertical = 2
+text = "sort"
+metadata/_edit_use_anchors_ = true
+
+[node name="SecondOrderDynamics" type="Node" parent="Inventory"]
+script = ExtResource("4_7yy2h")
+_f = 3.0
+
+[node name="Hotbar" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_u7cpj")
+script = ExtResource("5_u2u6f")
+initial_inventory = ExtResource("6_djqsp")
+
+[node name="InventoryInterface" type="Control" parent="Hotbar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Hotbar/InventoryInterface"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = -10.0
+offset_right = 5.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="GridContainer" type="GridContainer" parent="Hotbar/InventoryInterface/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 8
+
+[node name="Button" type="Button" parent="Hotbar/InventoryInterface"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -259.0
+offset_top = -124.0
+offset_right = -220.0
+offset_bottom = -93.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "sort"
+
+[node name="ExternalInventory" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_u7cpj")
+script = ExtResource("7_cgudm")
+initial_inventory = SubResource("Resource_itdkt")
+
+[node name="InventoryInterface" type="Control" parent="ExternalInventory"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="ExternalInventory/InventoryInterface"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.497396
+anchor_top = 0.836111
+anchor_right = 0.502604
+anchor_bottom = 0.84537
+offset_right = -6.10352e-05
+grow_horizontal = 2
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="GridContainer" type="GridContainer" parent="ExternalInventory/InventoryInterface/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 8
+
+[node name="Button" type="Button" parent="ExternalInventory/InventoryInterface"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -259.0
+offset_top = -124.0
+offset_right = -220.0
+offset_bottom = -93.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "sort"
+
+[node name="GrabSlot" parent="." instance=ExtResource("9_5x1td")]
+offset_right = 74.0
+offset_bottom = 74.0
+mouse_filter = 2
+is_grab_slot = true
+
+[node name="Texture" parent="GrabSlot" index="0"]
+mouse_filter = 2
+
+[node name="Hand" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.68)
+top_level = true
+script = ExtResource("10_su6re")
+
+[node name="HandMesh" type="MeshInstance3D" parent="Hand"]
+layers = 2
+ignore_occlusion_culling = true
+mesh = ExtResource("11_h0ba3")
+
+[connection signal="button_down" from="Inventory/InventoryInterface/Button" to="Inventory" method="sort"]
+
+[editable path="GrabSlot"]
